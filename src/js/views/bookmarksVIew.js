@@ -1,19 +1,21 @@
-import View from './view.js';
+import View from './View.js';
 import previewView from './previewView.js';
-import icons from 'url:../../img/icons.svg';
+import icons from 'url:../../img/icons.svg'; // Parcel 2
 
 class BookmarksView extends View {
-  _parentElement = document.querySelector('.bookmarks');
+  _parentElement = document.querySelector('.bookmarks__list');
   _errorMessage = 'No bookmarks yet. Find a nice recipe and bookmark it ;)';
-  addHandlerLoad(handler) {
+  _message = '';
+
+  addHandlerRender(handler) {
     window.addEventListener('load', handler);
   }
-  _generatorMarkup() {
+
+  _generateMarkup() {
     return this._data
-      .map(bookmarks => {
-        return previewView.render(bookmarks, false);
-      })
+      .map(bookmark => previewView.render(bookmark, false))
       .join('');
   }
 }
+
 export default new BookmarksView();
