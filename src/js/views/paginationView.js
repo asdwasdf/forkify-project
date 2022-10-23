@@ -1,4 +1,4 @@
-import View from './View.js';
+import View from './view.js';
 import icons from 'url:../../img/icons.svg'; // Parcel 2
 
 class PaginationView extends View {
@@ -76,4 +76,3 @@ class PaginationView extends View {
 }
 
 export default new PaginationView();
-
